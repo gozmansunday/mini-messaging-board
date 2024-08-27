@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h2><%= title %></h2>
+    <a href="/">See all messages</a>
+
+    <hr />
+    <br />
+
+    <form action="/new" method="post">
+      <!-- Name -->
+      <div>
+        <label for="msg-author">Message Author</label>
+        <input id="msg-author" name="msgAuthor" type="text" placeholder="Enter name..." />
+      </div>
+
+      <br />
+
+      <!-- Message -->
+      <div>
+        <label for="msg-text">Message Text</label>
+        <textarea id="msg-text" name="msgText" rows="5" cols="30" placeholder="Enter text...">
+        </textarea>
+      </div>
+
+      <br />
+
+      <!-- Submit -->
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

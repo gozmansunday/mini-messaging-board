@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h2><%= title %></h1>
+    <a href="/">See all messages</a>
+    <a href="/new">Create new message</a>
+
+    <br />
+    <hr />
+
+    <div>
+      <h3><%= message.text %></h3>
+      <h4><%= message.user %></h4>
+      <p><%= message.added %></p>
+    </div>
+  </body>
+</html>

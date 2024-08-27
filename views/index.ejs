@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/new">Create new message</a>
+    <ul>
+      <hr />
+      <% messages.map((msg) => { %>
+      <li>
+        <p><%= msg.text %></p>
+        <p><%= msg.user %></p>
+        <p><%= msg.added %></p>
+        <a href="/<%= msg.id %>">
+          <button type="submit">View message</button>
+        </a>
+      </li>
+      <hr />
+      <% }) %>
+    </ul>
+  </body>
+</html>

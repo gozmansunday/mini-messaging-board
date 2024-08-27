@@ -5,6 +5,7 @@ import { RequestHandler } from "express";
 import { messages } from "../data/messages";
 import { HttpError } from "../interfaces/httpError";
 import { HttpStatusCode } from "../types";
+import { formatDate } from "../utils/date";
 
 /**
  * Shows the new message view.
@@ -38,7 +39,7 @@ export const createNewMsg: RequestHandler = (req, res, next) => {
     id: messages.length + 1,
     text: msgText,
     user: msgAuthor,
-    added: new Date(),
+    added: formatDate(new Date()),
   });
   res.redirect("/");
 };

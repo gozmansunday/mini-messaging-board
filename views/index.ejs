@@ -4,22 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .roboto {
+          font-family: "Roboto Mono", monospace;
+          font-optical-sizing: auto;
+          font-style: normal;
+        }
+      }
+    </style>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a0ef5908cc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <a href="/new">Create new message</a>
-    <ul>
-      <hr />
+
+  <body class="container mx-auto flex flex-col gap-8 px-3 roboto md:px-4 md:gap-12">
+    <header class="flex items-center justify-between h-20">
+      <h1 class="text-xl font-bold md:text-2xl"><%= title %></h1>
+      <a
+        href="/new"
+        class="rounded-lg focus:outline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2"
+      >
+        <button
+          tabindex="-1"
+          class="bg-blue-600 text-white text-sm rounded-lg size-10 transition duration-200 hover:bg-blue-500 focus:outline-0 md:px-6 md:h-12 md:w-auto"
+        >
+          <span class="hidden md:inline-block">Create new message</span>
+          <i class="fa-solid fa-plus md:hidden"></i>
+        </button>
+      </a>
+    </header>
+
+    <ul class="grid gap-4 md:gap-6 md:grid-cols-2">
       <% messages.map((msg) => { %>
-      <li>
-        <p><%= msg.text %></p>
-        <p><%= msg.user %></p>
-        <p><%= msg.added %></p>
-        <a href="/<%= msg.id %>">
-          <button type="submit">View message</button>
-        </a>
+      <li
+        class="flex flex-col gap-6 bg-neutral-100 border border-neutral-300 rounded-xl shadow p-4 md:p-6"
+      >
+        <p class="text-black font-semibold"><%= msg.text %></p>
+
+        <div class="flex items-center justify-between gap-4">
+          <div class="text-sm text-neutral-500">
+            <p class="line-clamp-1"><%= msg.user %></p>
+            <p class="line-clamp-1"><%= msg.added %></p>
+          </div>
+          <a
+            href="/<%= msg.id %>"
+            class="rounded-lg focus:outline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2"
+          >
+            <button
+              tabindex="-1"
+              type="submit"
+              class="bg-blue-600 text-white text-sm rounded-lg size-10 transition duration-200 hover:bg-blue-500 focus:outline-0 lg:px-6 lg:h-12 lg:w-auto"
+            >
+              <span class="hidden lg:inline-block">View message</span>
+              <i class="fa-solid fa-eye lg:hidden"></i>
+            </button>
+          </a>
+        </div>
       </li>
-      <hr />
       <% }) %>
     </ul>
   </body>

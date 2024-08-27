@@ -4,19 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .roboto {
+          font-family: "Roboto Mono", monospace;
+          font-optical-sizing: auto;
+          font-style: normal;
+        }
+      }
+    </style>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a0ef5908cc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <h2><%= title %></h1>
-    <a href="/">See all messages</a>
-    <a href="/new">Create new message</a>
 
-    <br />
-    <hr />
+  <body
+    class="container mx-auto flex flex-col gap-8 px-3 roboto md:px-4 md:gap-12"
+  >
+    <header class="flex items-center justify-between h-20">
+      <h1 class="text-xl font-bold md:text-2xl"><%= title %></h1>
 
-    <div>
-      <h3><%= message.text %></h3>
-      <h4><%= message.user %></h4>
-      <p><%= message.added %></p>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a
+          href="/new"
+          class="rounded-lg focus:outline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2"
+        >
+          <button
+            tabindex="-1"
+            class="bg-blue-600 text-white text-sm rounded-lg size-10 transition duration-200 hover:bg-blue-500 focus:outline-0 md:px-6 md:h-12 md:w-auto"
+          >
+            <span class="hidden md:inline-block">Create new message</span>
+            <i class="fa-solid fa-plus md:hidden"></i>
+          </button>
+        </a>
+        <a
+          href="/"
+          class="rounded-lg focus:outline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2"
+        >
+          <button
+            tabindex="-1"
+            class="bg-blue-600 text-white text-sm rounded-lg size-10 transition duration-200 hover:bg-blue-500 focus:outline-0 md:px-6 md:h-12 md:w-auto"
+          >
+            <span class="hidden md:inline-block">See all messages</span>
+            <i class="fa-solid fa-list md:hidden"></i>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <div class="flex flex-col gap-6">
+      <h3 class="text-lg font-semibold md:text-xl"><%= message.text %></h3>
+
+      <div class="text-sm text-neutral-500 md:text-base">
+        <h4><%= message.user %></h4>
+        <p><%= message.added %></p>
+      </div>
     </div>
   </body>
 </html>

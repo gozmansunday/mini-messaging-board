@@ -3,7 +3,6 @@ import { RequestHandler } from "express";
 
 // Local Imports
 import { messages } from "../data/messages";
-import { HttpError } from "../interfaces/httpError";
 import { HttpStatusCode } from "../types";
 
 /**
@@ -27,14 +26,7 @@ export const showSingleMessageView: RequestHandler = (req, res, next) => {
 
   if (!message) {
     // If there's no message, redirect to the homepage
-    res.status(HttpStatusCode.NOT_FOUND).render("index", {
-      title: "Mini Message Board",
-      messages: messages,
-    });
-
-    const err: HttpError = new Error("Message not found");
-    err.status = 404;
-    return next(err);
+    res.status(HttpStatusCode.OK).redirect("/");
   }
 
   res.status(HttpStatusCode.OK).render("single-message", {

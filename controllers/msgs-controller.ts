@@ -44,7 +44,7 @@ export const showSingleMessageView: RequestHandler = async (req, res, next) => {
 
     if (!message) {
       // If there's no message, redirect to the homepage
-      res.status(HttpStatusCode.OK).redirect("/");
+      return res.status(HttpStatusCode.OK).redirect("/");
     }
 
     const modifiedMsg = {

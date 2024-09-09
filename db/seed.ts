@@ -4,7 +4,9 @@ import { Client } from "pg";
 
 dotenv.config();
 
-const dbUrl = process.env.DATABASE_URL;
+const dbUrl =
+  process.env.DATABASE_URL ??
+  "postgresql://postgres:AMvmsyUumLhVsYCelIKrInqvihkBUuyU@junction.proxy.rlwy.net:37273/railway";
 
 if (!dbUrl) {
   throw new Error("DATABASE_URL environment variable is missing.");

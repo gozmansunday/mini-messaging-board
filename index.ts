@@ -7,8 +7,8 @@ import errorHandler from "./middleware/error";
 import logger from "./middleware/logger";
 import notFound from "./middleware/notFound";
 import msgsRouter from "./routes/msgs-route";
-import newMessageRouter from "./routes/new-msg-route";
 
+// TODO: CREATE A .env FILE IF THERE'S NONE
 const PORT = process.env.PORT ?? 8000;
 
 // Initialize Express app
@@ -26,7 +26,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
 // Routes
-app.use("/new", newMessageRouter);
 app.use("/", msgsRouter);
 
 // Not Found Routes

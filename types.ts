@@ -9,3 +9,10 @@ export enum HttpStatusCode {
   BAD_GATEWAY = 502,
   SERVICE_UNAVAILABLE = 503,
 }
+
+export type Message = {
+  id: number;
+  message: string;
+  username: string;
+  added: Date;
+};

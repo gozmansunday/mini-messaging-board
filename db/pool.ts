@@ -4,9 +4,7 @@ import { Pool } from "pg";
 
 dotenv.config();
 
-const dbUrl =
-  process.env.DATABASE_URL ??
-  "postgresql://postgres:AMvmsyUumLhVsYCelIKrInqvihkBUuyU@junction.proxy.rlwy.net:37273/railway";
+const dbUrl = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString: dbUrl,

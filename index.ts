@@ -1,4 +1,5 @@
 // External Imports
+import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 
@@ -7,6 +8,8 @@ import errorHandler from "./middleware/error";
 import logger from "./middleware/logger";
 import notFound from "./middleware/notFound";
 import msgsRouter from "./routes/msgs-route";
+
+dotenv.config();
 
 // TODO: CREATE A .env FILE IF THERE'S NONE
 const PORT = process.env.PORT ?? 8000;
